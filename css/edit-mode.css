@@ -1,0 +1,179 @@
+/* ===========================
+   Edit Mode — Global
+   =========================== */
+body.edit-mode-active * { box-sizing: border-box; }
+
+/* ===========================
+   Edit Mode Toolbar
+   =========================== */
+.edit-toolbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1500;
+  background: #1e3a5f; color: #fff;
+  display: none; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  padding: 0.65rem 1.25rem; gap: 0.75rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+  font-family: var(--font, sans-serif);
+}
+.edit-toolbar.open { display: flex; }
+.edit-toolbar-left { display: flex; align-items: center; gap: 0.75rem; }
+.edit-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: rgba(255,255,255,0.15); padding: 0.3rem 0.8rem;
+  border-radius: 20px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em;
+}
+.edit-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.edit-toolbar-right { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.toolbar-btn {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.4rem 0.9rem; border-radius: 6px; font-size: 0.82rem; font-weight: 600;
+  border: 1.5px solid transparent; cursor: pointer; transition: all 0.2s;
+  font-family: inherit;
+}
+.toolbar-btn-save { background: #16a34a; color: #fff; border-color: #16a34a; }
+.toolbar-btn-save:hover { background: #15803d; }
+.toolbar-btn-save.unsaved::after { content: '•'; margin-left: 2px; color: #fbbf24; }
+.toolbar-btn-export { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+.toolbar-btn-export:hover { background: rgba(255,255,255,0.12); }
+.toolbar-btn-import { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+.toolbar-btn-import:hover { background: rgba(255,255,255,0.12); }
+.toolbar-btn-reset { background: transparent; color: #fca5a5; border-color: rgba(252,165,165,0.35); }
+.toolbar-btn-reset:hover { background: rgba(220,38,38,0.15); }
+.toolbar-btn-exit { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+.toolbar-btn-exit:hover { background: rgba(255,255,255,0.12); }
+.toolbar-btn-pin { background: transparent; color: #fbbf24; border-color: rgba(251,191,36,0.35); }
+.toolbar-btn-pin:hover { background: rgba(251,191,36,0.12); }
+
+/* push navbar down when toolbar is open */
+body.edit-mode-active .navbar { top: 50px; }
+
+/* ===========================
+   Editable Elements Highlight
+   =========================== */
+body.edit-mode-active [data-editable]:hover {
+  outline: 2px dashed #3b82f6;
+  outline-offset: 3px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+body.edit-mode-active [data-editable]:hover::after {
+  content: '✏️';
+  position: absolute;
+  top: -14px;
+  right: -6px;
+  font-size: 0.75rem;
+  background: #3b82f6;
+  color: #fff;
+  padding: 1px 4px;
+  border-radius: 4px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* inline editing active */
+.inline-editor {
+  display: block; width: 100%; background: var(--bg-secondary, #f8f9fa);
+  border: 2px solid #3b82f6; border-radius: 6px; padding: 0.45rem 0.7rem;
+  font-family: inherit; font-size: inherit; color: var(--text, #1a1a2e);
+  resize: vertical; outline: none; transition: box-shadow 0.2s;
+  min-width: 120px;
+}
+.inline-editor:focus { box-shadow: 0 0 0 3px rgba(59,130,246,0.25); }
+textarea.inline-editor { min-height: 80px; }
+
+/* ===========================
+   Add / Delete Buttons
+   =========================== */
+.add-item-btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.45rem 1rem; border-radius: 6px; font-size: 0.82rem; font-weight: 600;
+  background: rgba(59,130,246,0.1); color: #3b82f6; border: 1.5px dashed #3b82f6;
+  cursor: pointer; transition: all 0.2s; font-family: inherit;
+  margin-top: 0.75rem;
+}
+.add-item-btn:hover { background: rgba(59,130,246,0.2); }
+
+.delete-item-btn {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(220,38,38,0.1); color: #dc2626; border: 1.5px solid rgba(220,38,38,0.3);
+  display: flex; align-items: center; justify-content: center; font-size: 0.9rem;
+  cursor: pointer; transition: all 0.2s; flex-shrink: 0; font-family: inherit;
+}
+.delete-item-btn:hover { background: rgba(220,38,38,0.2); }
+
+/* edit wrapper for items in edit mode */
+.edit-item-wrap { position: relative; }
+.edit-item-wrap .delete-item-btn {
+  position: absolute; top: 0.5rem; right: 0.5rem; z-index: 5;
+}
+
+/* ===========================
+   Skill Tags Edit Mode
+   =========================== */
+.skill-tag-edit-wrap { display: inline-flex; align-items: center; gap: 2px; }
+.skill-tag-edit-wrap .delete-item-btn {
+  position: static; width: 18px; height: 18px; font-size: 0.65rem;
+}
+.add-skill-input {
+  padding: 0.25rem 0.6rem; border-radius: 20px; font-size: 0.82rem;
+  border: 1.5px dashed #3b82f6; background: transparent; color: var(--text, #1a1a2e);
+  font-family: inherit; outline: none; width: 120px;
+}
+
+/* ===========================
+   PIN Modal
+   =========================== */
+.pin-modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 3100;
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+}
+.pin-modal {
+  background: var(--bg-card, #fff); border-radius: 16px; padding: 2.5rem 2rem;
+  max-width: 360px; width: 100%; text-align: center;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+}
+.pin-modal-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.pin-modal-title { font-size: 1.25rem; font-weight: 800; color: var(--text, #1a1a2e); margin-bottom: 0.4rem; }
+.pin-modal-sub { font-size: 0.88rem; color: var(--text-muted, #888899); margin-bottom: 1.5rem; }
+.pin-input {
+  width: 100%; text-align: center; font-size: 2rem; letter-spacing: 0.5rem; font-weight: 700;
+  padding: 0.75rem; border: 2px solid var(--border, #e2e8f0); border-radius: 10px;
+  background: var(--bg-secondary, #f8f9fa); color: var(--text, #1a1a2e);
+  outline: none; margin-bottom: 1rem;
+}
+.pin-input:focus { border-color: #3b82f6; }
+.pin-input.error { border-color: #dc2626; animation: shake 0.35s; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+.pin-error-msg { font-size: 0.82rem; color: #dc2626; margin-bottom: 0.75rem; min-height: 1.2em; }
+.pin-modal-actions { display: flex; gap: 0.75rem; justify-content: center; }
+.pin-modal-actions button {
+  flex: 1; padding: 0.65rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+  border: 1.5px solid transparent; cursor: pointer; font-family: inherit;
+}
+.pin-confirm-btn { background: #3b82f6; color: #fff; border-color: #3b82f6; }
+.pin-confirm-btn:hover { background: #2563eb; }
+.pin-cancel-btn { background: transparent; color: var(--text-secondary, #555577); border-color: var(--border, #e2e8f0); }
+.pin-cancel-btn:hover { border-color: #3b82f6; color: #3b82f6; }
+
+/* ===========================
+   Photo Edit Overlay
+   =========================== */
+body.edit-mode-active .hero-photo { cursor: pointer; }
+.photo-edit-overlay {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: rgba(59,130,246,0.55); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; color: #fff; font-size: 0.82rem; font-weight: 600;
+  opacity: 0; transition: opacity 0.2s; text-align: center; gap: 0.25rem;
+}
+body.edit-mode-active .hero-photo:hover .photo-edit-overlay { opacity: 1; }
+.photo-edit-overlay .icon { font-size: 1.75rem; }
+
+/* ===========================
+   CV file input
+   =========================== */
+.cv-file-edit { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; }
+.cv-file-edit label { font-size: 0.82rem; color: var(--text-muted, #888); font-weight: 600; }
+.cv-file-row { display: flex; gap: 0.5rem; align-items: center; }
+.cv-path-input { flex: 1; padding: 0.45rem 0.7rem; border-radius: 6px; border: 1.5px solid #3b82f6; background: var(--bg-secondary, #f8f9fa); color: var(--text, #1a1a2e); font-family: inherit; font-size: 0.88rem; outline: none; }

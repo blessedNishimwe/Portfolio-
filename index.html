@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional portfolio — IT Professional, Software Developer, Business Analyst, Data & Enterprise Systems.">
+  <meta name="keywords" content="portfolio, software developer, business analyst, IT professional, data systems">
+  <meta property="og:title" content="Portfolio">
+  <meta property="og:description" content="Professional portfolio — Software Developer & Business Analyst.">
+  <meta property="og:type" content="website">
+  <title>Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/edit-mode.css">
+</head>
+<body>
+
+  <!-- ===================== Navigation ===================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#home" class="nav-brand" id="nav-brand">
+        <span id="nav-brand-name">[YOUR NAME]</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#certifications" class="nav-link" data-section="certifications">Certifications</a></li>
+        <li><a href="#cv" class="nav-link" data-section="cv">CV</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#home" class="nav-link" data-section="home">Home</a>
+      <a href="#about" class="nav-link" data-section="about">About</a>
+      <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+      <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+      <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+      <a href="#certifications" class="nav-link" data-section="certifications">Certifications</a>
+      <a href="#cv" class="nav-link" data-section="cv">CV</a>
+      <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ===================== Hero ===================== -->
+  <section id="home" class="hero section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">🚀 Open to Opportunities</div>
+          <h1 class="hero-name reveal" id="hero-name" data-editable data-field="personal.name">[YOUR FULL NAME]</h1>
+          <div class="hero-headline reveal" id="hero-headline" data-editable data-field="personal.headline">IT Professional | Software Developer | Business Analyst</div>
+          <p class="hero-tagline reveal" id="hero-tagline" data-editable data-field="personal.tagline">Your short professional tagline goes here.</p>
+          <div class="hero-actions reveal">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#" class="btn btn-outline" id="hero-cv-btn" download>Download CV</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+            <a href="#" class="btn btn-ghost" id="hero-github-btn" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="hero-photo-wrap reveal">
+          <div class="hero-photo" id="hero-photo" role="img" aria-label="Profile photo">
+            <div class="hero-photo-placeholder">
+              <span class="icon">👤</span>
+              <span class="label">Click to add photo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== About ===================== -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">Who I Am</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p class="about-bio reveal" id="about-bio" data-editable data-field="about.bio">Your professional bio goes here.</p>
+          <div class="about-highlights reveal" id="about-highlights"></div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card reveal">
+            <div class="stat-number">🎯</div>
+            <div class="stat-label">IT Professional</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-number">💻</div>
+            <div class="stat-label">Software Developer</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-number">📊</div>
+            <div class="stat-label">Business Analyst</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Experience ===================== -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Experience</span>
+        <h2 class="section-title">Professional Journey</h2>
+        <p class="section-subtitle">My work history and the impact I've made.</p>
+      </div>
+      <div class="timeline" id="experience-list">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Skills ===================== -->
+  <section id="skills" class="skills section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Skills</span>
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-subtitle">Technologies and disciplines I work with professionally.</p>
+      </div>
+      <div class="skills-grid" id="skills-container">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Projects ===================== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Projects</span>
+        <h2 class="section-title">What I've Built</h2>
+        <p class="section-subtitle">A selection of projects that demonstrate my skills and approach.</p>
+      </div>
+      <div class="project-filters" id="project-filters">
+        <!-- rendered by JS -->
+      </div>
+      <div class="projects-grid" id="projects-grid">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Certifications ===================== -->
+  <section id="certifications" class="certs section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Certifications</span>
+        <h2 class="section-title">Credentials & Training</h2>
+        <p class="section-subtitle">Professional certifications and continuous learning.</p>
+      </div>
+      <div class="certs-grid" id="certs-grid">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CV ===================== -->
+  <section id="cv" class="cv-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">CV / Résumé</span>
+        <h2 class="section-title">My Résumé</h2>
+        <p class="section-subtitle">Professional summary, education, and downloadable CV.</p>
+      </div>
+      <div class="cv-grid">
+        <div>
+          <h3 style="font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:.75rem">Professional Summary</h3>
+          <p class="cv-summary reveal" id="cv-summary" data-editable data-field="cv.summary">Your professional summary will appear here.</p>
+          <h3 style="font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:.75rem;margin-top:2rem">Education</h3>
+          <div class="cv-education-list" id="edu-list">
+            <!-- rendered by JS -->
+          </div>
+        </div>
+        <div>
+          <div class="cv-actions-card">
+            <div class="cv-actions-title">📄 Download CV</div>
+            <p style="font-size:.88rem;color:var(--text-secondary)">Get the full PDF version of my résumé.</p>
+            <a href="#" class="btn btn-primary" id="cv-download-btn" download>⬇️ Download CV</a>
+            <a href="#" class="btn btn-outline" id="cv-view-btn" target="_blank" rel="noopener">👁️ View CV Online</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Contact ===================== -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Interested in working together? Reach out through any channel below.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <div>
+              <div class="contact-label">Email</div>
+              <a class="contact-value" id="contact-email-link" href="#">
+                <span id="contact-email-val" data-editable data-field="personal.email">[YOUR EMAIL]</span>
+              </a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">💼</span>
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <a class="contact-value" id="contact-linkedin-link" href="#" target="_blank" rel="noopener">
+                <span id="contact-linkedin-val" data-editable data-field="personal.linkedin">[YOUR LINKEDIN URL]</span>
+              </a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🐙</span>
+            <div>
+              <div class="contact-label">GitHub</div>
+              <a class="contact-value" id="contact-github-link" href="#" target="_blank" rel="noopener">
+                <span id="contact-github-val" data-editable data-field="personal.github">[YOUR GITHUB URL]</span>
+              </a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <div class="contact-label">Location</div>
+              <span class="contact-value" id="contact-location-val" data-editable data-field="personal.location">[YOUR LOCATION]</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📱</span>
+            <div>
+              <div class="contact-label">Phone</div>
+              <span class="contact-value" id="contact-phone-val" data-editable data-field="personal.phone">[YOUR PHONE]</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Your Name</label>
+              <input type="text" class="form-input" id="contact-name" name="name" required placeholder="John Smith">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Your Email</label>
+              <input type="email" class="form-input" id="contact-email" name="email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-message">Message</label>
+              <textarea class="form-textarea" id="contact-message" name="message" required placeholder="Tell me about your project or opportunity..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">Send Message →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span id="footer-name">[YOUR NAME]</span></div>
+        <div class="footer-copy">© <span id="footer-year"></span> All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link" id="footer-github-link" target="_blank" rel="noopener" aria-label="GitHub">🐙</a>
+          <a href="#" class="footer-link" id="footer-linkedin-link" target="_blank" rel="noopener" aria-label="LinkedIn">💼</a>
+          <a href="#" class="footer-link" id="footer-email-link" aria-label="Email">📧</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== Project Modal ===================== -->
+  <div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title"></h2>
+        <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="project-category" id="modal-category"></div>
+        <p style="color:var(--text-secondary);margin:.75rem 0 1.5rem;line-height:1.7" id="modal-description"></p>
+        <div class="modal-section-title">The Problem</div>
+        <p style="color:var(--text-secondary);font-size:.95rem;line-height:1.7" id="modal-problem"></p>
+        <div class="modal-section-title">The Solution</div>
+        <p style="color:var(--text-secondary);font-size:.95rem;line-height:1.7" id="modal-solution"></p>
+        <div class="modal-section-title">My Role</div>
+        <p style="color:var(--text-secondary);font-size:.95rem" id="modal-role"></p>
+        <div class="modal-section-title">Technologies</div>
+        <div class="project-tech" id="modal-tech" style="margin-top:.5rem"></div>
+        <div class="modal-section-title">Key Features</div>
+        <div class="modal-features" id="modal-features"></div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.75rem">
+          <a href="#" id="modal-github-link" class="btn btn-outline" target="_blank" rel="noopener">GitHub Repository</a>
+          <a href="#" id="modal-demo-link" class="btn btn-primary" target="_blank" rel="noopener">Live Demo ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== Floating Buttons ===================== -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+  <button class="edit-toggle-btn" id="edit-toggle-btn" title="Edit Portfolio Content — click to enter edit mode">✏️</button>
+
+  <!-- ===================== Scripts ===================== -->
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/edit-mode.js"></script>
+</body>
+</html>
